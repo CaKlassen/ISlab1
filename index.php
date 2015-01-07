@@ -7,8 +7,10 @@
         <?php
         include('Student.php');
         
+        // Create an array of students
         $students = array();
         
+        // Add a set of students to the array
         $first = new Student();
         $first->surname = "Doe";
         $first->first_name = "John";
@@ -30,6 +32,20 @@
         $second->add_grade(50);
         $students['a456'] = $second;
         
+        $third = new Student();
+        $third->surname = "Klassen";
+        $third->first_name = "Christofer";
+        $third->add_email('home','ca.klassen95@gmail.com');
+        $third->add_email('work1','magnesiumninja@gmail.com');
+        $third->add_grade(95);
+        $third->add_grade(91);
+        $third->add_grade(87);
+        $students['a00879060'] = $third;
+        
+        // Sort the students by student number
+        ksort($students);
+        
+        // Print each student to the screen
         foreach($students as $student)
             echo $student->toString();
         ?>
