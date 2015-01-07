@@ -16,34 +16,37 @@ class Student {
     }
     
     // Set the student's email
-    function add_email($which, $address)
-    {
+    function add_email($which, $address) {
         $this->emails[$which] = $address;
     }
     
     // Set the student's grade
-    function add_grade($grade)
-    {
+    function add_grade($grade) {
         $this->grades[] = $grade;
     }
     
     // Compute the student's average mark
-    function average()
-    {
+    function average() {
         $total = 0;
+        
         foreach($this->grades as $value)
             $total += $value;
+        
         return $total / count($this->grades);
     }
     
     // Print the student's details
-    function toString()
-    {
+    function toString() {
+        // Add the student name to the string
         $result = $this->first_name . ' ' . $this->surname;
         $result .= ' (' . $this->average() . ")\n";
+        
+        // Loop through all student emails and add them to the string
         foreach($this->emails as $which => $what)
             $result .= $which . ': ' . $what . "\n";
+        
         $result .= "\n";
+        
         return '<pre>' . $result . "</pre>";
     }
 }
